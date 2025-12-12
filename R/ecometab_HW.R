@@ -67,7 +67,7 @@
 #' ## plot daily raw, no aesthetics
 #' plot(metab, by = 'days', pretty = FALSE)
 #' }
-source("~/Desktop/f_calcWan09.R")
+source("R/f_calcWan09.R")
 #
 ecometab_HW <- function(dat_in, ...) UseMethod('ecometab_HW')
 

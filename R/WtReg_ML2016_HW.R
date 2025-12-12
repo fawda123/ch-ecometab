@@ -3,8 +3,8 @@
 # PIE_MR_2006_b.R HERE modified the IBYC 2006 d script for this site
 # Going from 1,3,6,9, 12 to MB 0.1, 3.075, 6.05, 9.025, 12
 # Only produces metab numbers for all windows - no evaluation
-source("~/Desktop/f_calcWan09.R")
-source("~/Desktop/ecometab_HW.R")
+source("R/f_calcWan09.R")
+source("R/ecometab_HW.R")
 # ---- Libraries ----
 # remotes::install_github("fawda123/WtRegDO")
 # Load plyr before tidyverse to avoid conflicts, and let furrr handle parallelism
@@ -16,12 +16,12 @@ library(furrr)
 library(lubridate)   # explicitly included for clarity
 
 # ---- Directories (ABSOLUTE PATHS to avoid "no output" when using parallel workers) ----
-out_dir <- normalizePath("~/Desktop/ML_2016_WtReg_Results",
+out_dir <- normalizePath("results",
                          winslash = "/", mustWork = TRUE)
 setwd(out_dir)
 
 # ---- Read input & prep ----
-data_file <- file.path(out_dir, "ML_2016.csv")   # <-- change filename as needed
+data_file <- file.path("data/ML_2016.csv")   # <-- change filename as needed
 cat("\n📄 Loading data from:", data_file, "\n")
 
 dat <- readr::read_csv(data_file, show_col_types = TRUE) %>%
